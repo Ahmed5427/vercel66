@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء خطاب جديد - مولد الخطابات بالذكاء الاصطناعي</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="https://via.placeholder.com/50x50/22c55e/ffffff?text=NZ" alt="NetZero Logo" class="logo">
+                <span class="nav-title">مولد الخطابات بالذكاء الاصطناعي</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-item">الرئيسية</a>
+                <a href="#" class="nav-item active">إنشاء خطاب جديد</a>
+                <a href="archive-letters.html" class="nav-item">سجل الخطابات</a>
+                <a href="review-letter.html" class="nav-item">مراجعة خطاب</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>إنشاء خطاب جديد</h1>
+                <p>املأ البيانات التالية لإنشاء خطاب باستخدام الذكاء الاصطناعي</p>
+            </div>
+
+            <div class="form-sections">
+                <!-- Letter Data Section -->
+                <section class="form-section">
+                    <h2 class="section-title">بيانات الخطاب</h2>
+                    <form id="letterForm" class="letter-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="letterType">نوع الخطاب *</label>
+                                <select id="letterType" name="letterType" required>
+                                    <option value="">اختر نوع الخطاب</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="letterPurpose">الغرض من الخطاب *</label>
+                                <select id="letterPurpose" name="letterPurpose" required>
+                                    <option value="">اختر الغرض</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="letterStyle">الأسلوب *</label>
+                                <select id="letterStyle" name="letterStyle" required>
+                                    <option value="">اختر الأسلوب</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>هل هذه أول مراسلة؟ *</label>
+                                <div class="radio-group">
+                                    <label class="radio-label">
+                                        <input type="radio" name="isFirst" value="true" required>
+                                        <span>نعم</span>
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="isFirst" value="false" required>
+                                        <span>لا</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="recipient">المرسل إليه *</label>
+                                <input type="text" id="recipient" name="recipient" required>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="letterTitle">عنوان الخطاب *</label>
+                                <input type="text" id="letterTitle" name="letterTitle" required>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="letterContent">محتوى الخطاب *</label>
+                                <textarea id="letterContent" name="letterContent" rows="6" required></textarea>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" id="generateBtn">
+                            <i class="fas fa-magic"></i>
+                            إنشاء الخطاب
+                        </button>
+                    </form>
+                </section>
+
+                <!-- Letter Preview Section -->
+                <section class="form-section" id="previewSection" style="display: none;">
+                    <h2 class="section-title">معاينة الخطاب</h2>
+                    
+                    <div class="preview-content">
+                        <div class="form-group">
+                            <label for="generatedLetter">نص الخطاب المولد</label>
+                            <textarea id="generatedLetter" rows="15" class="generated-letter"></textarea>
+                        </div>
+
+                        <div class="template-selection">
+                            <h3>اختر قالب التصميم</h3>
+                            <div class="templates-grid">
+                                <div class="template-card" data-template="1">
+                                    <div class="template-preview">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>القالب الأول</span>
+                                    </div>
+                                    <input type="radio" name="template" value="1" id="template1">
+                                    <label for="template1">اختيار</label>
+                                </div>
+                                
+                                <div class="template-card" data-template="2">
+                                    <div class="template-preview">
+                                        <i class="fas fa-file-text"></i>
+                                        <span>القالب الثاني</span>
+                                    </div>
+                                    <input type="radio" name="template" value="2" id="template2">
+                                    <label for="template2">اختيار</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-success" id="saveBtn" disabled>
+                            <i class="fas fa-save"></i>
+                            حفظ ومتابعة
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>جاري إنشاء الخطاب...</p>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/sheets-api.js"></script>
+    <script src="js/create-letter.js"></script>
+</body>
+</html>

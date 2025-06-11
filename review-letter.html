@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مراجعة خطاب - مولد الخطابات بالذكاء الاصطناعي</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="https://via.placeholder.com/50x50/22c55e/ffffff?text=NZ" alt="NetZero Logo" class="logo">
+                <span class="nav-title">مولد الخطابات بالذكاء الاصطناعي</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-item">الرئيسية</a>
+                <a href="create-letter.html" class="nav-item">إنشاء خطاب جديد</a>
+                <a href="archive-letters.html" class="nav-item">سجل الخطابات</a>
+                <a href="#" class="nav-item active">مراجعة خطاب</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>مراجعة خطاب</h1>
+                <p>اختر خطاباً لمراجعته وتحديد حالته</p>
+            </div>
+
+            <!-- Letter Selection Section -->
+            <section class="form-section" id="letterSelectionSection">
+                <h2 class="section-title">اختيار الخطاب</h2>
+                <div class="form-group">
+                    <label for="letterSelect">اختر الخطاب المراد مراجعته *</label>
+                    <select id="letterSelect" name="letterSelect" required>
+                        <option value="">اختر خطاباً</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-primary" id="selectLetterBtn" disabled>
+                    <i class="fas fa-eye"></i>
+                    عرض الخطاب
+                </button>
+            </section>
+
+            <!-- Review Section -->
+            <section class="form-section" id="reviewSection" style="display: none;">
+                <h2 class="section-title">مراجعة الخطاب</h2>
+                <form id="reviewForm" class="review-form">
+                    <div class="form-group">
+                        <label for="reviewerName">اسم المراجع *</label>
+                        <input type="text" id="reviewerName" name="reviewerName" required>
+                    </div>
+
+                    <div class="form-group">
+                                                <label for="letterText">نص الخطاب</label>
+                        <textarea id="letterText" name="letterText" rows="15" class="letter-content"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reviewNotes">الملاحظات</label>
+                        <textarea id="reviewNotes" name="reviewNotes" rows="4" placeholder="أضف ملاحظاتك هنا..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="reviewCompleted" name="reviewCompleted">
+                            <span class="checkmark"></span>
+                            تمت المراجعة
+                        </label>
+                    </div>
+
+                    <div class="review-actions">
+                        <button type="button" class="btn btn-warning" id="needsImprovementBtn" disabled>
+                            <i class="fas fa-exclamation-triangle"></i>
+                            يحتاج إلى تحسينات
+                        </button>
+                        
+                        <button type="button" class="btn btn-success" id="readyToSendBtn" disabled>
+                            <i class="fas fa-check-circle"></i>
+                            جاهز للإرسال
+                        </button>
+                        
+                        <button type="button" class="btn btn-danger" id="rejectedBtn" disabled>
+                            <i class="fas fa-times-circle"></i>
+                            مرفوض
+                        </button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/sheets-api.js"></script>
+    <script src="js/review-letter.js"></script>
+</body>
+</html>

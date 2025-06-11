@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سجل الخطابات - مولد الخطابات بالذكاء الاصطناعي</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="https://via.placeholder.com/50x50/22c55e/ffffff?text=NZ" alt="NetZero Logo" class="logo">
+                <span class="nav-title">مولد الخطابات بالذكاء الاصطناعي</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-item">الرئيسية</a>
+                <a href="create-letter.html" class="nav-item">إنشاء خطاب جديد</a>
+                <a href="#" class="nav-item active">سجل الخطابات</a>
+                <a href="review-letter.html" class="nav-item">مراجعة خطاب</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>سجل الخطابات</h1>
+                <p>عرض وإدارة جميع الخطابات المحفوظة</p>
+            </div>
+
+            <!-- Filters Section -->
+            <section class="filters-section">
+                <div class="filters-container">
+                    <div class="filter-group">
+                        <label for="searchInput">ابحث عن المستلم أو الرقم المرجعي للخطاب</label>
+                        <input type="text" id="searchInput" placeholder="أدخل اسم المستلم أو الرقم المرجعي">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="letterTypeFilter">نوع الخطاب</label>
+                        <select id="letterTypeFilter">
+                            <option value="">جميع الأنواع</option>
+                            <option value="جديد">جديد</option>
+                            <option value="رد">رد</option>
+                            <option value="متابعة">متابعة</option>
+                            <option value="تعاون">تعاون</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="reviewStatusFilter">المراجعة</label>
+                        <select id="reviewStatusFilter">
+                            <option value="">جميع الحالات</option>
+                            <option value="في الانتظار">في الانتظار</option>
+                            <option value="جاهز للإرسال">جاهز للإرسال</option>
+                            <option value="يحتاج إلى تحسينات">يحتاج إلى تحسينات</option>
+                            <option value="مرفوض">مرفوض</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Letters Table Section -->
+            <section class="table-section">
+                <div class="table-container">
+                    <table class="letters-table" id="lettersTable">
+                        <thead>
+                            <tr>
+                                <th>الرقم المرجعي</th>
+                                <th>التاريخ</th>
+                                <th>نوع الخطاب</th>
+                                <th>المراجعة</th>
+                                <th>الإرسال</th>
+                                <th>المستلم</th>
+                                <th>الموضوع</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lettersTableBody">
+                            <!-- Letters will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>جاري تحميل البيانات...</p>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/sheets-api.js"></script>
+    <script src="js/archive-letters.js"></script>
+</body>
+</html>
