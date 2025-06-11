@@ -1,15 +1,4 @@
 {
-  "functions": {
-    "app.js": {
-      "runtime": "@vercel/node@18"
-    }
-  },
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
